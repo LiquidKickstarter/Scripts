@@ -25,10 +25,10 @@ public class Wait {
         try {
             for (int i = 0; i < t; i++) {
                 if (!c.call()) {
-                    Wait.sleep(f);
-                } else {
-                    break;
+                    Wait.sleep(f * variance());
+                    continue;
                 }
+                break;
             }
             return c.call();
         } catch (Exception e) {
